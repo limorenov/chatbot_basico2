@@ -63,8 +63,8 @@ def send_message(recipient_id, response):
 
 def load_full_model(training_model):
     
-    data_path = "preguntas7.txt"
-    data_path2 = "respuestas7.txt"
+    data_path = "preguntas8.txt"
+    data_path2 = "respuestas8.txt"
     with open(data_path.encode('utf-8'), 'r') as f:
       lines = f.read().split('\n')
     with open(data_path2.encode('utf-8'), 'r') as f:
@@ -237,7 +237,7 @@ def decode_response(test_input):
         states_value = [hidden_state, cell_state]
     return decoded_sentence
 
-model = load_model('model.h5')
+model = load_model('model8.h5')
 load_full_model(model)
 
 # Add description here about this if statement.
