@@ -33,11 +33,11 @@ def receive_message():
                     # Facebook Messenger ID for user so we know where to send response back to
                     recipient_id = message['sender']['id']
                     if message['message'].get('text'):
-                        response_sent_text = get_message()
+                        response_sent_text = get_message(message['message'].get('text'))
                         send_message(recipient_id, response_sent_text)
                     # if user send us a GIF, photo, video or any other non-text item
                     if message['message'].get('attachments'):
-                        response_sent_text = get_message()
+                        response_sent_text = "gif"
                         send_message(recipient_id, response_sent_text)
     return "Message Processed"
 
@@ -50,11 +50,8 @@ def verify_fb_token(token_sent):
     return 'Invalid verification token'
 
 
-def get_message():
-    sample_responses = ["You are stunning!", "We're proud of you",
-                        "Keep on being you!", "We're greatful to know you :)"]
-    # return selected item to the user
-    return random.choice(sample_responses)
+def get_message(mensaje):
+    return generate_response(mensaje)
 
 
 # Uses PyMessenger to send response to the user
