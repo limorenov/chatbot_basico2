@@ -237,11 +237,11 @@ def decode_response(test_input):
         states_value = [hidden_state, cell_state]
     return decoded_sentence
 
-
+model = load_model('model.h5')
+load_full_model(model)
 
 # Add description here about this if statement.
 if __name__ == "__main__":
     #loading the model
-    model = load_model('model.h5')
-    load_full_model(model)
+    
     app.run()
